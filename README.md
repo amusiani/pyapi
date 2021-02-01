@@ -3,6 +3,8 @@
 One paragraph of your project description goes here. Describe what you're trying to do.
 What is the purpose of putting up this repo?
 
+here I want to learn version control with git
+
 ## Getting Started
 
 These instructions will get you a copy of the project up and running on your local machine
