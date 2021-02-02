@@ -1,0 +1,38 @@
+#!/usr/bin/python3
+
+import requests
+
+NASAAPI = "https://api.nasa.gov/planetary/apod?"
+
+def main():
+    ## first I want to grab my credentials
+    with open("/home/student/nasa.creds", "r") as mycreds:
+        nasacreds = mycreds.read()
+    ## remove any newline characters from the api_key
+    nasacreds = "api_key=" + nasacreds.strip("\n")
+
+    birth = input("what is your birth month-day?(MM-DD)\n")
+    
+    birthday = "2020-" + birth
+
+    ## make a call to NASAAPI with our key
+    apodresp = requests.get(NASAAPI + "date=" + birthday + "&" +  nasacreds)
+
+    ## strip off json
+    apod = apodresp.json()
+
+    print(apod)
+
+    print()
+
+    print(apod["title"] + "\n")
+
+    print(apod["date"] + "\n")
+
+    print(apod["explanation"])
+
+    print(apod["url"])
+
+if __name__ == "__main__":
+    main()
+
